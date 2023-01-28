@@ -11,6 +11,7 @@ public abstract class Entity : Notifiable<Notification>
         Id = ObjectId.GenerateNewId();
         CreatedAt = Id.CreationTime.ToLocalTime();
         UpdatedAt = DateTime.Now.ToLocalTime();
+        IsActive = true;
     }
 
     [BsonElement("id")]
@@ -35,11 +36,5 @@ public abstract class Entity : Notifiable<Notification>
     {
         if (IsValid)
             IsActive = false;
-    }
-
-    public virtual void Update(ObjectId id)
-    {
-        if (IsValid)
-            UpdatedAt = DateTime.Now.ToLocalTime();
     }
 }

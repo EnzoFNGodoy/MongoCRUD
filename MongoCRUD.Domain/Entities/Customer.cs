@@ -8,7 +8,8 @@ namespace MongoCRUD.Domain.Entities;
 [BsonCollection("Customers")]
 public sealed class Customer : Entity
 {
-    public Customer(Name name, Email email, Password password)
+    public Customer(Name name, Email email, Password password) 
+        : base()
     {
         Name = name;
         Email = email;

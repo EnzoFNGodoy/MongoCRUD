@@ -32,7 +32,7 @@ public sealed class CustomerServices : ICustomerServices
 
         var customerMapped = _mapper.Map<ResponseCustomerViewModel>(await _customerRepository.GetOneWhere(x => x.Id == customerIdParsed));
 
-        return new ServicesResponse(false, "Sucesso.", customerMapped);
+        return new ServicesResponse(true, "Sucesso.", customerMapped);
     }
 
     public async Task<ServicesResponse> Login(string email, string password)
@@ -43,7 +43,7 @@ public sealed class CustomerServices : ICustomerServices
         if (password.IsEmpty())
             return new ServicesResponse(false, "Password inválido.");
 
-        var customerExists = await _customerRepository.GetOneWhere(x => x.Email.ToString() == email && x.Password.ToString() == password);
+        var customerExists = await _customerRepository.GetOneWhere(x => x.Email.Address == email && x.Password.PasswordTyped == password);
 
         if (customerExists is null)
             return new ServicesResponse(false, "Cliente inexistente.");
@@ -53,7 +53,7 @@ public sealed class CustomerServices : ICustomerServices
         var customerMapped = _mapper.Map<ResponseLoginCustomerViewModel>(customerExists);
         customerMapped.Token = token;
 
-        return new ServicesResponse(false, "Sucesso.", customerMapped);
+        return new ServicesResponse(true, "Sucesso.", customerMapped);
     }
 
     public async Task<ServicesResponse> Create(RequestCustomerViewModel customerViewModel)

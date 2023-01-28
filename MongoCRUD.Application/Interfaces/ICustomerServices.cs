@@ -14,4 +14,4 @@ public interface ICustomerServices
     Task<ServicesResponse> Activate(string customerId);
     Task<ServicesResponse> Deactivate(string customerId);
     Task<ServicesResponse> Delete(string customerId);
-}s
+}

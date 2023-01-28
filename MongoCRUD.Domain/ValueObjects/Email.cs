@@ -16,4 +16,6 @@ public sealed class Email : ValueObject
     }
 
     public string Address { get; private set; }
+
+    public override string ToString() => $"{Address}";
 }

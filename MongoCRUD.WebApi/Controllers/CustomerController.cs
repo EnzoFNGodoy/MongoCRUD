@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Flunt.Notifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoCRUD.Application.Interfaces;
 using MongoCRUD.Application.ViewModel;
@@ -38,6 +39,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Response);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
@@ -60,6 +63,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Response);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
@@ -82,6 +87,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Response);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
@@ -104,6 +111,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Response);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
@@ -126,6 +135,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Message);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
@@ -148,6 +159,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Message);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
@@ -170,6 +183,8 @@ public sealed class CustomerController : ApiController
 
             if (response.IsSuccess)
                 return Ok(response.Message);
+            else if (response.Response is List<Notification>)
+                return CustomResponse(response.Response);
 
             return BadRequest(response.Message);
         }
