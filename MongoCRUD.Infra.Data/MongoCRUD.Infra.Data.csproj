@@ -18,4 +18,9 @@
     <PackageReference Include="MongoDB.Driver.Core" Version="2.19.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MongoCRUD.Domain.Core\MongoCRUD.Domain.Core.csproj" />
+    <ProjectReference Include="..\MongoCRUD.Domain\MongoCRUD.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

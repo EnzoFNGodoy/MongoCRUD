@@ -23,4 +23,17 @@ public sealed class Customer : Entity
     public Email Email { get; private set; }
     [BsonElement("Password")]
     public Password Password { get; private set; }
+
+    public void Update(Name name, Email email, Password password)
+    {
+        AddNotifications(name, email, password);
+
+        if (IsValid)
+        {
+            Name = name;
+            Email = email;
+            Password = password;
+            UpdatedAt = DateTime.Now.ToLocalTime();
+        }
+    }
 }

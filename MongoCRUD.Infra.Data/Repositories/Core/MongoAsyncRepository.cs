@@ -5,7 +5,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq.Expressions;
 
-namespace Gooders.Shared.Infra.Data.Repositories.Core;
+namespace MongoCRUD.Infra.Data.Repositories.Core;
 
 public class MongoAsyncRepository<T> : IMongoAsyncRepository<T> where T : Entity
 {

@@ -1,20 +1,36 @@
+using MongoCRUD.WebApi.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configuring Swagger
+builder.Services.AddSwaggerConfiguration();
+
+// Configuring AutoMapper
+builder.Services.AddAutoMapperConfiguration();
+
+// Configuring Dependency Injection
+builder.Services.AddDependencyInjectionConfiguration();
+
+// Configuring MongoDB
+builder.Services.AddDatabaseConfiguration(builder.Configuration);
+
+// Configuring Jwt
+builder.Services.AddJwtConfiguration();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseCors(x =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    x.AllowAnyHeader();
+    x.AllowAnyOrigin();
+    x.AllowAnyMethod();
+});
+
+app.UseSwaggerSetup();
 
 app.UseHttpsRedirection();
 

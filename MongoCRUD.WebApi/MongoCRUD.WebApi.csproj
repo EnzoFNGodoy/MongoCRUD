@@ -12,6 +12,7 @@
     <PackageReference Include="Flunt" Version="2.0.5" />
     <PackageReference Include="Flunt.Br" Version="2.0.0" />
     <PackageReference Include="Flunt.Extensions.Br" Version="1.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="MongoDB.Bson" Version="2.19.0" />
@@ -21,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\MongoCRUD.Application\MongoCRUD.Application.csproj" />
+    <ProjectReference Include="..\MongoCRUD.Infra.CrossCutting.IoC\MongoCRUD.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,6 +16,11 @@
     <PackageReference Include="MongoDB.Bson" Version="2.19.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.19.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MongoCRUD.Domain\MongoCRUD.Domain.csproj" />
   </ItemGroup>
 
 </Project>

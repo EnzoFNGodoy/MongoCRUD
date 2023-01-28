@@ -9,21 +9,21 @@ public abstract class Entity : Notifiable<Notification>
     protected Entity()
     {
         Id = ObjectId.GenerateNewId();
-        CreatedAt = Id.CreationTime;
+        CreatedAt = Id.CreationTime.ToLocalTime();
         UpdatedAt = DateTime.Now.ToLocalTime();
     }
 
     [BsonElement("id")]
-    public ObjectId Id { get; private set; }
+    public ObjectId Id { get; protected set; }
 
     [BsonElement("createdAt")]
-    public DateTime CreatedAt { get; private set; }
+    public DateTime CreatedAt { get; protected set; }
 
     [BsonElement("updatedAt")]
-    public DateTime UpdatedAt { get; private set; }
+    public DateTime UpdatedAt { get; protected set; }
 
     [BsonElement("isActive")]
-    public bool IsActive { get; private set; }
+    public bool IsActive { get; protected set; }
 
     public void Activate()
     {
